@@ -1,6 +1,6 @@
-# [Project name]
+# Khaled Sourani Portfolio
 
-_Replace the heading above with the project's name, and this line with one sentence describing what this app does for users._
+A bilingual (Arabic/English) personal portfolio for Khaled Akram Al-Sourani, a 16-year-old self-taught Full Stack Web Developer from Gaza.
 
 ## Run & Operate
 
@@ -22,23 +22,31 @@ _Replace the heading above with the project's name, and this line with one sente
 
 ## Where things live
 
-_Populate as you build — short repo map plus pointers to the source-of-truth file for DB schema, API contracts, theme files, etc._
+- Portfolio frontend: `artifacts/portfolio/src/` — components in `src/components/`, language context in `src/contexts/LanguageContext.tsx`
+- Contact API route: `artifacts/api-server/src/routes/contact.ts`
+- Theme/colors: `artifacts/portfolio/src/index.css`
+- User photo: `attached_assets/khaled1_1782917413564.jpg`
 
 ## Architecture decisions
 
-_Populate as you build — non-obvious choices a reader couldn't infer from the code (3-5 bullets)._
+- Frontend-only portfolio (no DB) — contact form POSTs to `/api/contact` on the shared API server
+- Bilingual via React Context (`LanguageContext`): all text keyed in `en`/`ar` objects, RTL applied via `dir` attribute on document
+- Animated globe built with pure CSS gradients + SVG + framer-motion (no 3D libs)
+- Contact endpoint logs only metadata (no PII) — real email sending can be added later via nodemailer + app password
 
 ## Product
 
-_Describe the high-level user-facing capabilities of this app once they exist._
+Single-page bilingual (AR/EN) portfolio with: Hero with animated globe, About with photo, Projects, Skills grid, Achievements timeline, and a working Contact form.
 
 ## User preferences
 
-_Populate as you build — explicit user instructions worth remembering across sessions._
+- The portfolio owner is Khaled Akram Al-Sourani (خالد أكرم الصوراني), 16 years old, from Gaza, Palestine
+- Contact email: khaledakram1234567890@gmail.com
+- Website must support both Arabic (RTL) and English (LTR)
 
 ## Gotchas
 
-_Populate as you build — sharp edges, "always run X before Y" rules._
+- The contact form sends to `/api/contact` — to enable real email delivery, add nodemailer + Gmail app password as a secret and update `artifacts/api-server/src/routes/contact.ts`
 
 ## Pointers
 
